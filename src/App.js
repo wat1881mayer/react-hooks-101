@@ -1,9 +1,22 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
 const App =(props)=> {
   
   const [state,setState] = useState(props)
   const {name,price} = state
+
+  useEffect(()=> {
+    console.log('This is like componentDidMount or componetDidUpdate')
+  })
+
+  useEffect(()=> {
+    console.log('This is like componentDidMount')
+  },[])
+
+  useEffect(()=> {
+    console.log('This callback is for name only')
+  },[name])
+  
   
   return (
   <>
@@ -11,7 +24,7 @@ const App =(props)=> {
     <button onClick={()=>setState({...state,price:price +1}) }>+1</button>
     <button onClick={()=>setState({...state,price:price -1}) }>-1</button>
     <button onClick={()=>setState(props)}>Reset</button>
-    <input value = {name}　onChange={e=> setState({...state,name:e.target.value})}/>
+    <input value = {name}　onChange={e => setState({...state, name: e.target.value})}/>
   </>
   )
 }
