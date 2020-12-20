@@ -12,7 +12,7 @@ const operationsLogs = (state = [], action)=> {
                 operatedAt : action.operatedAt
             } 
             return [operationLog, ...state]
-        case DELETE_ALL_EVENT:
+        case DELETE_ALL_OPERATION_LOGS:
             return []
             default:
                 return state
